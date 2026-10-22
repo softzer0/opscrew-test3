@@ -1,0 +1,82 @@
+{
+  "schemaVersion": 1,
+  "generatedAt": "2026-10-22T19:04:52.250Z",
+  "generator": {
+    "tool": "opscrew",
+    "version": "0.1.0"
+  },
+  "facts": {
+    "name": "nextjs-postgres-demo",
+    "languages": [
+      "typescript"
+    ],
+    "packageManager": "npm",
+    "frameworks": [
+      {
+        "name": "next",
+        "version": "^16.4.0",
+        "path": "."
+      },
+      {
+        "name": "react",
+        "version": "^19.3.0",
+        "path": "."
+      }
+    ],
+    "appKind": "ssr",
+    "platformExport": {
+      "platform": "none",
+      "evidence": []
+    },
+    "build": {
+      "installCommand": "npm install",
+      "buildCommand": "npm run build",
+      "startCommand": "npm start"
+    },
+    "port": 3000,
+    "runtimeVersions": {},
+    "runtimeEvidence": {
+      "node": [
+        {
+          "value": "22",
+          "source": "package.json"
+        }
+      ]
+    },
+    "envVars": [
+      {
+        "name": "DATABASE_URL",
+        "files": [
+          "lib/db.ts"
+        ],
+        "clientExposed": false,
+        "secretLikely": true
+      }
+    ],
+    "services": [
+      {
+        "kind": "postgres",
+        "evidence": [
+          "dependency:pg",
+          "env:DATABASE_URL"
+        ],
+        "variable": "DATABASE_URL"
+      }
+    ],
+    "docker": {},
+    "monorepo": false,
+    "appDir": ".",
+    "git": {
+      "remoteUrl": "https://github.com/softzer0/opscrew-test3.git",
+      "owner": "softzer0",
+      "repo": "opscrew-test3",
+      "currentBranch": "main"
+    }
+  },
+  "summary": "nextjs-postgres-demo is a server-rendered web app built with Next.js and React (TypeScript). Dependencies are installed with npm. It listens on port 3000. It uses PostgreSQL. It reads 1 environment variable.",
+  "risks": [
+    "There is no Dockerfile. OpsCrew will add one when it prepares the code (`opscrew adapt`).",
+    "No health-check endpoint was found. The deployment needs one to know the app is up; OpsCrew will propose a `/health` route."
+  ],
+  "aiEnriched": false
+}
