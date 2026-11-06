@@ -16,12 +16,22 @@ variable "www" {
   type        = bool
 }
 
-variable "apex" {
-  description = "The domain is the zone's apex (A and AAAA records) rather than a subdomain."
+variable "cloudflare_account_id" {
+  description = "Cloudflare account id (the Worker belongs to it)."
+  type        = string
+}
+
+variable "worker" {
+  description = "Name of the Worker, unique in the Cloudflare account."
+  type        = string
+}
+
+variable "workers_dev" {
+  description = "Serve the Worker on its workers.dev address."
   type        = bool
 }
 
-variable "github_owner" {
-  description = "GitHub account that owns the repository, in lower case: its GitHub Pages host is <owner>.github.io."
-  type        = string
+variable "preview_urls" {
+  description = "Give each version of the Worker its own preview URL."
+  type        = bool
 }
