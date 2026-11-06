@@ -2,5 +2,5 @@
 # regenerates this file; change the plan (or the vendored modules) instead.
 
 output "url" {
-  value = module.worker.url
+  value = module.dns.url
 }
