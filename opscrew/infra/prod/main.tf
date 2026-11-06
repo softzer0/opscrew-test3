@@ -4,15 +4,17 @@
 # Token from the CLOUDFLARE_API_TOKEN environment variable.
 provider "cloudflare" {}
 
-# The site on GitHub Pages: its DNS records, all DNS only, since Cloudflare's proxy would stop
-# GitHub from issuing and renewing the site's certificate. GitHub's domain verification record
-# has a root of its own (opscrew/infra/github-pages-verification), so destroying this one keeps it.
-module "dns" {
-  source = "../modules/cloudflare-dns/github-pages"
+# The app on Cloudflare's hosting: a Worker with the site's files, and a custom domain for each
+# hostname. This configuration creates the Worker's shell once; OpsCrew's deploy workflow
+# uploads its code, files and secrets with Wrangler, and its settings are in the Wrangler config.
+module "worker" {
+  source = "../modules/cloudflare-workers"
 
-  zone_id = var.cloudflare_zone_id
-  domain  = var.domain
-  apex    = var.apex
-  owner   = var.github_owner
-  www     = var.www
+  account_id   = var.cloudflare_account_id
+  zone_id      = var.cloudflare_zone_id
+  worker       = var.worker
+  domain       = var.domain
+  www          = var.www
+  workers_dev  = var.workers_dev
+  preview_urls = var.preview_urls
 }
