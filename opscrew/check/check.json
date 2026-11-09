@@ -1,0 +1,24 @@
+{
+  "version": 1,
+  "intervalMinutes": 15,
+  "thresholds": {
+    "diskWarn": 85,
+    "diskHigh": 95,
+    "certDays": 14,
+    "tries": 3,
+    "retrySeconds": 30,
+    "timeoutSeconds": 10
+  },
+  "public": true,
+  "environments": [
+    {
+      "key": "repo/prod",
+      "hosts": [
+        {
+          "hostname": "e2e-mw9dw38lb7d9a9a7.opscrew.dev",
+          "healthPath": "/"
+        }
+      ]
+    }
+  ]
+}
