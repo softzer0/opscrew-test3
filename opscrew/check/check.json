@@ -1,0 +1,29 @@
+{
+  "version": 1,
+  "intervalMinutes": 15,
+  "thresholds": {
+    "diskWarn": 85,
+    "diskHigh": 95,
+    "certDays": 14,
+    "tries": 3,
+    "retrySeconds": 30,
+    "timeoutSeconds": 10
+  },
+  "public": true,
+  "environments": [
+    {
+      "key": "j030-63951879-a/prod",
+      "hosts": [
+        {
+          "hostname": "j030-63951879-first.prompt2agent.ai",
+          "healthPath": "/health"
+        }
+      ],
+      "server": {
+        "id": "hetzner-j030-63951879-a",
+        "secret": "OPSCREW_CHECK_SERVER",
+        "via": "github"
+      }
+    }
+  ]
+}
