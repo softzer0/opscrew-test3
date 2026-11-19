@@ -7,6 +7,15 @@ const config = require("./knexfile");
 const db = knex(config);
 
 const app = new Koa();
+
+app.use(async (ctx, next) => {
+  if (ctx.method === "GET" && ctx.path === "/health") {
+    ctx.body = { status: "ok" };
+    return;
+  }
+  await next();
+});
+
 const router = new Router();
 const port = process.env.PORT || 3000;
 
