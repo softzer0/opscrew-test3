@@ -24,6 +24,26 @@
         "secret": "OPSCREW_CHECK_SERVER",
         "via": "github"
       }
+    },
+    {
+      "key": "j030-488983c1-b/prod",
+      "hosts": [
+        {
+          "hostname": "j030-488983c1-second.prompt2agent.ai",
+          "healthPath": "/health"
+        }
+      ],
+      "server": {
+        "id": "own-Vjk5IUmLS0Rt2bd8riu6zZjj1UajqnCS-ViZxGHblE8",
+        "secret": "OPSCREW_J030_488983C1_B_CHECK_SERVER",
+        "via": "github"
+      },
+      "snapshots": {
+        "app": "j030-488983c1-b",
+        "servers": [
+          "own-Vjk5IUmLS0Rt2bd8riu6zZjj1UajqnCS-ViZxGHblE8"
+        ]
+      }
     }
   ]
 }
