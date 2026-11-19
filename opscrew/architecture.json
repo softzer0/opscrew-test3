@@ -1,0 +1,93 @@
+{
+  "schemaVersion": 1,
+  "generatedAt": "2026-11-19T04:53:03.714Z",
+  "generator": {
+    "tool": "opscrew",
+    "version": "0.2.10"
+  },
+  "facts": {
+    "name": "j030-85dfaf5c-a",
+    "languages": [
+      "javascript"
+    ],
+    "packageManager": "npm",
+    "frameworks": [
+      {
+        "name": "koa",
+        "version": "3.2.1",
+        "path": "koa-knex"
+      }
+    ],
+    "appKind": "api",
+    "platformExport": {
+      "platform": "none",
+      "evidence": []
+    },
+    "build": {
+      "installCommand": "cd koa-knex && npm install",
+      "startCommand": "cd koa-knex && npm start",
+      "releaseCommand": "cd koa-knex && npx knex migrate:latest",
+      "migrations": {
+        "tool": "knex",
+        "status": "cd koa-knex && npx knex migrate:list",
+        "down": "cd koa-knex && npx knex migrate:down"
+      },
+      "seedCommand": "cd koa-knex && npx knex seed:run"
+    },
+    "port": 3000,
+    "runtimeVersions": {},
+    "envVars": [
+      {
+        "name": "DATABASE_URL",
+        "files": [
+          "koa-knex/knexfile.js"
+        ],
+        "clientExposed": false,
+        "secretLikely": true
+      },
+      {
+        "name": "E2E_PREVIEW_VALUE",
+        "files": [
+          "koa-knex/index.js"
+        ],
+        "clientExposed": false,
+        "secretLikely": false
+      },
+      {
+        "name": "PORT",
+        "files": [
+          "koa-knex/index.js"
+        ],
+        "clientExposed": false,
+        "secretLikely": false,
+        "hasDefault": true
+      }
+    ],
+    "services": [
+      {
+        "kind": "postgres",
+        "evidence": [
+          "dependency:pg",
+          "env:DATABASE_URL"
+        ],
+        "variable": "DATABASE_URL"
+      }
+    ],
+    "docker": {},
+    "monorepo": false,
+    "appDir": "koa-knex",
+    "git": {
+      "remoteUrl": "https://github.com/softzer0/opscrew-test3.git",
+      "owner": "softzer0",
+      "repo": "opscrew-test3",
+      "defaultBranch": "main",
+      "currentBranch": "main"
+    }
+  },
+  "summary": "koa-knex-demo is an API server built with Koa (JavaScript). It lives in `koa-knex` and is built from the repository root. Dependencies are installed with npm. It listens on port 3000. It uses PostgreSQL. It reads 3 environment variables.",
+  "risks": [
+    "There is no Dockerfile. OpsCrew will add one when it prepares the code (`opscrew adapt`).",
+    "No health-check endpoint was found. The deployment needs one to know the app is up; OpsCrew will propose a `/health` route."
+  ],
+  "aiEnriched": false
+}
