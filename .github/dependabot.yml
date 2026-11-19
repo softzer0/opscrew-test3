@@ -85,11 +85,95 @@ updates:
       - dependency-name: typesense/typesense
         update-types:
           - version-update:semver-major
+  - package-ecosystem: npm
+    directory: /express-api
+    schedule:
+      interval: weekly
+    groups:
+      npm-minor-and-patch:
+        patterns:
+          - "*"
+        update-types:
+          - minor
+          - patch
+  - package-ecosystem: docker
+    directory: /express-api
+    schedule:
+      interval: weekly
+    groups:
+      docker-minor-and-patch:
+        patterns:
+          - "*"
+        update-types:
+          - minor
+          - patch
+    ignore:
+      - dependency-name: apache/kafka
+        update-types:
+          - version-update:semver-major
+      - dependency-name: caddy
+        update-types:
+          - version-update:semver-major
+      - dependency-name: clickhouse
+        update-types:
+          - version-update:semver-major
+      - dependency-name: dragonflydb/dragonfly
+        update-types:
+          - version-update:semver-major
+      - dependency-name: dxflrs/garage
+        update-types:
+          - version-update:semver-major
+      - dependency-name: elasticsearch
+        update-types:
+          - version-update:semver-major
+      - dependency-name: getmeili/meilisearch
+        update-types:
+          - version-update:semver-major
+          - version-update:semver-minor
+      - dependency-name: mariadb
+        update-types:
+          - version-update:semver-major
+      - dependency-name: mongo
+        update-types:
+          - version-update:semver-major
+      - dependency-name: mysql
+        update-types:
+          - version-update:semver-major
+      - dependency-name: nats
+        update-types:
+          - version-update:semver-major
+      - dependency-name: node
+        update-types:
+          - version-update:semver-major
+      - dependency-name: opensearchproject/opensearch
+        update-types:
+          - version-update:semver-major
+      - dependency-name: postgres
+        update-types:
+          - version-update:semver-major
+      - dependency-name: python
+        update-types:
+          - version-update:semver-major
+      - dependency-name: rabbitmq
+        update-types:
+          - version-update:semver-major
+      - dependency-name: redis
+        update-types:
+          - version-update:semver-major
+      - dependency-name: redpandadata/redpanda
+        update-types:
+          - version-update:semver-major
+      - dependency-name: typesense/typesense
+        update-types:
+          - version-update:semver-major
   - package-ecosystem: docker-compose
     directories:
       - /opscrew/runtime
       - /opscrew/runtime/cloudflared
       - /opscrew/runtime/portainer
+      - /opscrew/apps/j030-a21fe6a6-b/runtime
+      - /opscrew/apps/j030-a21fe6a6-b/runtime/cloudflared
+      - /opscrew/apps/j030-a21fe6a6-b/runtime/portainer
     schedule:
       interval: weekly
     groups:

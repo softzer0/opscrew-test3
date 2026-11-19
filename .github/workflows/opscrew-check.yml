@@ -35,4 +35,5 @@ jobs:
           OPSCREW_CHECK_PAUSED: ${{ vars.OPSCREW_CHECK_PAUSED }}
           OPSCREW_CHECK_SSH_KEY: ${{ secrets.OPSCREW_CHECK_SSH_KEY }}
           OPSCREW_CHECK_SERVER: ${{ secrets.OPSCREW_CHECK_SERVER }}
+          OPSCREW_J030_A21FE6A6_B_CHECK_SERVER: ${{ secrets.OPSCREW_J030_A21FE6A6_B_CHECK_SERVER }}
         run: node opscrew/check/check.mjs
