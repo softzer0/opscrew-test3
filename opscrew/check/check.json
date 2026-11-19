@@ -24,6 +24,26 @@
         "secret": "OPSCREW_CHECK_SERVER",
         "via": "github"
       }
+    },
+    {
+      "key": "j030-83bda242-b/prod",
+      "hosts": [
+        {
+          "hostname": "j030-83bda242-second.prompt2agent.ai",
+          "healthPath": "/health"
+        }
+      ],
+      "server": {
+        "id": "own-FtUA495xBHfK2F25btn17iYhWTTShHLbbxPnn_nX3RE",
+        "secret": "OPSCREW_J030_83BDA242_B_CHECK_SERVER",
+        "via": "github"
+      },
+      "snapshots": {
+        "app": "j030-83bda242-b",
+        "servers": [
+          "own-FtUA495xBHfK2F25btn17iYhWTTShHLbbxPnn_nX3RE"
+        ]
+      }
     }
   ]
 }
